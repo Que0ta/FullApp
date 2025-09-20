@@ -451,10 +451,15 @@ app.get("/*splat", async (req, res) => {
 //   console.log(`Server running on port ${port}`);
 // });
 
-console.log("Registered Express routes:");
-app._router.stack
-  .filter(r => r.route)
-  .map(r => r.route.path)
-  .forEach(path => console.log(path));
+// After defining all routes
+if (app._router) {
+  console.log("Registered Express routes:");
+  app._router.stack
+    .filter(r => r.route)
+    .map(r => r.route.path)
+    .forEach(path => console.log(path));
+} else {
+  console.log("No routes registered yet.");
+}
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
