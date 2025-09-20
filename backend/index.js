@@ -451,4 +451,10 @@ app.get("/*", (req, res) => {
 // app.listen(port, () => {
 //   console.log(`Server running on port ${port}`);
 // });
+console.log("Registered Express routes:");
+app._router.stack
+  .filter(r => r.route)
+  .map(r => r.route.path)
+  .forEach(path => console.log(path));
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
