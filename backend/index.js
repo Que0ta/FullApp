@@ -39,11 +39,6 @@ const __dirname = path.dirname(__filename);
 // Serve React build
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-// Catch-all for SPA routes
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
-
 const PORT = process.env.PORT || 2000;
 
 const supabase = createClient(
@@ -447,6 +442,11 @@ app.post("/api/reset-lobby", verifyToken, async(req,res)=>{
 
   res.json(resetStatus);
 })
+
+// Catch-all for SPA routes
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
 
 // app.listen(port, () => {
 //   console.log(`Server running on port ${port}`);
