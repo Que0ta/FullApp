@@ -152,9 +152,9 @@ function chooseSpies(playerIds, spyCount, weights) {
   return Array.from(chosen);
 }
 
-app.get("/api/", (req, res) => {
-  res.redirect("/users");
-});
+// app.get("/", (req, res) => {
+//   res.redirect("/users");
+// });
 
 app.get("/api/users", verifyToken, async (req, res) => {
   try {
