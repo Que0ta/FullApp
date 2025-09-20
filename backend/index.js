@@ -39,7 +39,7 @@ const __dirname = path.dirname(__filename);
 // Serve React build
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 5000;
 
 const supabase = createClient(
   process.env.DATABASE_URL,
