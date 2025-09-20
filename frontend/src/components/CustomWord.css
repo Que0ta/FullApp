@@ -1,0 +1,79 @@
+.addCustomWord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+  margin-top: 10px;
+}
+
+.addCustomWord form {
+  display: flex;
+  gap: 10px;
+}
+
+.addCustomWord input {
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.addCustomWord input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.addCustomWord button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.addCustomWord button:hover {
+  background-color: #11ad45;
+  transform: scale(1.05);
+}
+
+.addCustomWord button:active {
+  transform: scale(0.95);
+}
+
+.addCustomWord .add-word{
+    background-color: #1bd058;
+}
+
+.status-header {
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 0;
+}
+
+/* Success message */
+.status-header.success {
+  background-color: #e0f8e9;
+  color: #2e7d32;
+}
+
+/* Error message */
+.status-header.error {
+  background-color: #fdecea;
+  color: #c62828;
+}
+
+/* Neutral / hidden */
+.status-header.hidden {
+  background-color: transparent;
+  color: inherit;
+}

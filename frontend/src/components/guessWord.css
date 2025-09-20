@@ -1,0 +1,65 @@
+/* Full screen overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* keep above other content */
+}
+
+.popup-overlay .frame-word {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    max-width: 500px;
+    max-height: 500px;
+    
+    width: 100%;
+
+    padding: 12px 5px;
+}
+
+.popup-overlay .frame-word .word-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.popup-overlay .frame-word .word-list li{
+    width: 120px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .popup-overlay .frame-word{
+        max-width: 400px;
+        max-height: 600px;
+        padding: 12px 5px;
+    }
+
+    .popup-overlay .frame-word h2{
+        font-size: clamp(18px,1vw,22px);
+    }
+
+    .popup-overlay .frame-word .word-list li span{
+        font-size: clamp(12px, 1vw, 16px);
+    }
+
+    .popup-overlay .frame-word .word-list li{
+        width: 95px;
+        padding: 5px 7px;
+    }
+}
+
+.popup-overlay .frame-word .word-list li.chosenAnswer{
+    background-color: blue;
+}

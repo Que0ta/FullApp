@@ -1,0 +1,181 @@
+/* styles.css */
+.word-list {
+  list-style: none; /* remove bullets */
+  padding: 0;
+  margin: 0;
+  display: flex; /* horizontal scroll possible */
+  flex-wrap: wrap; /* wrap on smaller screens */
+  flex-direction: column;
+  gap: 10px; /* spacing between items */
+}
+
+.word-list li {
+  background: #4a90e2; /* nice blue color */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.word-list li:hover {
+  transform: scale(1.05);
+  background: #357abd; /* darker on hover */
+}
+
+/*  */
+/*  */
+/* Word list */
+.frame-word .word-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* Frame wrapper */
+.frame-word {
+  max-width: 70vw;
+  width: 300px;
+  max-height: 50vh; /* allows vertical scroll on long lists */
+  overflow-y: auto;
+  padding: 12px 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+
+/* Word items with checkbox */
+.frame-word .word-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #6f6f6f;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+
+/* Hover effect */
+.frame-word .word-list li:hover {
+  transform: scale(1.05);
+}
+
+/* Checkbox styling for better mobile touch */
+.frame-word .word-list input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+/*  */
+/*  */
+.word-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.word-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: #888888;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s, background 0.15s;
+  cursor: pointer;
+  user-select: none; /* prevent accidental text selection */
+  min-width: 60px; /* easier tap area */
+  text-align: center;
+  height: 50px;
+
+}
+
+/* Tap / hover effect */
+.word-list li:active,
+.word-list li:hover {
+  transform: scale(1.05);
+}
+
+/* Selected state */
+.word-list li.selected {
+  background: #29bd3f; /* darker blue */
+}
+
+.frame-word h3 {
+  text-align: center;
+}
+
+i{
+    color: #ecac16;
+}
+
+.word-list .custom.selected{
+  background: #ecac16;
+}
+
+.choose-all {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+/* Default (not all selected) - red */
+.choose-all {
+  background-color: #ff4d4d;
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.4);
+  display: block; 
+  margin: 15px auto;
+  outline: none;
+}
+
+.choose-all.selected {
+  background-color: #4caf50; /* green */
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.choose-all:hover {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.choose-all:active {
+  transform: translateY(0);
+  outline: none;
+}
+
+.custom .delete-btn{
+  background-color: red;
+  color: white;
+  font-weight: 900;
+  outline: none;
+  border: none;
+}
+
+.custom .delete-btn:hover{
+  outline: none;
+  border: none;
+  
+}

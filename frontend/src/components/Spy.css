@@ -1,0 +1,28 @@
+.spy-settings {
+  background-color: rgb(101, 98, 133);
+  border: none;
+  color: white;
+  transition: 0.3s linear background-color;
+}
+
+
+.spy-settings:focus {
+  outline: none;
+}
+
+.spy-settings:active{
+background-color: rgb(132, 128, 177);
+transition: 0.3s linear background-color;
+}
+
+.spy-amount-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.spy-amount-container h3{
+    font-size: clamp(1rem, 1.5vw, 3rem);
+}

@@ -1,0 +1,185 @@
+/* Overlay background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+body.popup-overlay {
+  overflow: hidden;
+}
+
+/* Popup box */
+.popup {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: popup-appear 0.2s ease-out;
+  margin: 0 20px;
+}
+
+.popup p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Buttons container */
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Buttons */
+.accept,
+.decline {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Accept button style */
+.accept {
+  background-color: #f44336; /* red */
+  color: white;
+}
+.accept:hover {
+  background-color: #d32f2f;
+}
+
+/* Decline button style */
+.decline {
+  background-color: #4caf50; /* green */
+  color: white;
+}
+.decline:hover {
+  background-color: #388e3c;
+}
+
+/* Popup appear animation */
+@keyframes popup-appear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* One more new */
+/* Container */
+.game-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #7c3aed, #4f46e5);  */
+  padding: 2rem;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Card wrapper to center cards */
+.card-wrapper {
+  position: relative;
+  width: 14rem;
+  height: 18rem;
+  margin: 2rem 0;
+  perspective: 1000px;
+}
+
+/* Card base */
+.card {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: absolute;
+  user-select: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.6s;
+}
+
+/* Front / Back / Black */
+.card-front {
+  background-color: #fff;
+  color: #312e81;
+}
+
+.card-back {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.card-black {
+  background-color: rgb(90, 90, 90);
+  color: black;
+}
+
+/* Card text */
+.card-text {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Progress & hint */
+.progress {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.hint {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: white;
+  padding: 1rem;
+}
+
+.skip-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3b8bcd;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.4s ease, transform 0.3s linear;
+}
+
+.skip-button:hover{
+  border: none;
+  background-color: #3b8bcd; /* darker blue on hover */
+  box-shadow: 2px 2px 16px 5px #48a4cb; /* soft shadow */ /* darker blue on hover */
+  transform: translateY(-3px);
+  transition: 0.3s transform linear;
+  color: white;
+}
+
+.hidden{
+  display: none !important;
+}
