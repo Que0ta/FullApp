@@ -32,10 +32,14 @@ app.use(
 );
 app.use(express.json());
 
-// Serve React build
-app.use(express.static(path.join(__dirname, "../frontend/dist"))); // Vite builds to dist/
+// Create __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Catch-all for SPA routes 
+// Serve React build
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Catch-all for SPA routes
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
