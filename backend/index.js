@@ -433,7 +433,6 @@ app.get("/api/get-results", verifyToken, async(req,res)=>{
   }
   
   res.json({gameWon});
-  
 })
 
 app.post("/api/reset-lobby", verifyToken, async(req,res)=>{
@@ -444,13 +443,14 @@ app.post("/api/reset-lobby", verifyToken, async(req,res)=>{
 })
 
 // Catch-all for SPA routes
-app.get("/*", (req, res) => {
+app.get("/*splat", async (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
 
 // app.listen(port, () => {
 //   console.log(`Server running on port ${port}`);
 // });
+
 console.log("Registered Express routes:");
 app._router.stack
   .filter(r => r.route)
