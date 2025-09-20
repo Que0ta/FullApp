@@ -49,6 +49,7 @@
 .navigation-panel h1 {
   text-align: center;
   font-size: clamp(1.3rem, 5vw, 5.5rem);
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .add-user {
