@@ -17,7 +17,7 @@ export default function Game() {
   const y = useMotionValue(0);
   const rotate = useTransform(y, [-360, 0, 360], [-180, 0, 180]);
 
-  const { readyUsers } = getLobbyInfo();
+  const { readyUsers, chosenWord } = getLobbyInfo();
   const [index, setIndex] = useState(0);
   const [step, setStep] = useState(0); // 0 = front, 1 = back, 2 = black
 
