@@ -88,7 +88,7 @@ export default function Game() {
             }`}
           >
             {step === 0 && <span className="card-text">{player.name}</span>}
-            {step === 1 && <span className="card-text">{player.role}</span>}
+            {step === 1 && <span className="card-text">{player.role === 'spy' ? "Шпигун" : chosenWord}</span>}
             {/* step === 2 has no content inside card */}
             {step === 2 && (
               <p className="hint">
