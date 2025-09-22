@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 //
 import bcrypt, { compareSync } from "bcrypt";
 import jwt from "jsonwebtoken";
+import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import { rateLimit } from "express-rate-limit";
 
@@ -23,6 +24,17 @@ dotenv.config();
 const JWT_SECRET = process.env.SUPER_KEY;
 
 const app = express();
+
+app.use(helmet());
+
+app.use(
+  helmet.hsts({
+    maxAge: 31536000,
+    includeSubDomains: true,
+    preload: true,
+  })
+);
+
 app.use(cookieParser());
 app.use(
   cors({
