@@ -36,21 +36,13 @@ app.use(
   })
 );
 
-app.use(
-  helmet.permissionsPolicy({
-    features: {
-      camera: [],
-      microphone: [],
-      geolocation: [],
-      fullscreen: [],
-      payment: [],
-      autoplay: [],
-      "clipboard-read": [],
-      "clipboard-write": [],
-      usb: []
-    }
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader(
+    "Permissions-Policy",
+    "camera=(), microphone=(), geolocation=(), fullscreen=(), payment=(), autoplay=(), clipboard-read=(), clipboard-write=(), usb=()"
+  );
+  next();
+});
 
 app.use(cookieParser());
 app.use(
