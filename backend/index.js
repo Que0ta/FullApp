@@ -27,11 +27,28 @@ const app = express();
 
 app.use(helmet());
 
+
 app.use(
   helmet.hsts({
     maxAge: 31536000,
     includeSubDomains: true,
     preload: true,
+  })
+);
+
+app.use(
+  helmet.permissionsPolicy({
+    features: {
+      camera: [],
+      microphone: [],
+      geolocation: [],
+      fullscreen: [],
+      payment: [],
+      autoplay: [],
+      "clipboard-read": [],
+      "clipboard-write": [],
+      usb: []
+    }
   })
 );
 
