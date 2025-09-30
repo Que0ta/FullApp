@@ -1,13 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/spy.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Find the spy</title>
+    <meta
+      name="description"
+      content="Чудовий спосіб проведення часу з сім'єю та друзями. Знайди шпигуна | Find The Spy - Безкоштовна онлайн-гра яка з легкістю підходить для компанії від 4-ьох людей. "
+    />
+    <meta
+      name="keywords"
+      content="онлайн-гра, гра для великих компаній, безкоштовна онлайн гра"
+    />
+    <meta property="og:title" content="Знайди шпигуна | Налаштування гри" />
+    <meta
+      property="og:description"
+      content="Реєструйтесь та грайте разом зі сім'єю та друзями!"
+    />
+    <meta property="og:image" content="/spy.png" />
+    <title>Знайди шпигуна</title>
   </head>
   <body>
     <div id="root"></div>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          © <span id="copyright-year"></span> Знайди шпигуна. Всі права
+          захищені.
+        </p>
+        <!-- <div class="footer-links">
+          <a href="/privacy">Політика конфіденційності</a>
+          <a href="/terms">Умови використання</a>
+        </div> -->
+      </div>
+      <div class="attribution">
+        <a
+          href="https://www.flaticon.com/free-icons/villager"
+          title="villager icons"
+          >Villager & Spy icons created by Freepik - Flaticon</a
+        >
+      </div>
+    </footer>
+    <script>
+      // Get the span element
+      const yearSpan = document.getElementById("copyright-year");
+
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+
+      // Set it inside the span
+      if (yearSpan) {
+        yearSpan.textContent = currentYear;
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
