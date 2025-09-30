@@ -463,6 +463,16 @@ app.post("/api/reset-lobby", verifyToken, async(req,res)=>{
   res.json(resetStatus);
 })
 
+// serve robots.txt
+app.get("/robots.txt", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/public/robots.txt"));
+});
+
+// serve sitemap.xml
+app.get("/sitemap.xml", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/public/sitemap.xml"));
+});
+
 // Catch-all for SPA routes
 app.get("/*splat", async (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
