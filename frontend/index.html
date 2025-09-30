@@ -28,10 +28,6 @@
           © <span id="copyright-year"></span> Знайди шпигуна. Всі права
           захищені.
         </p>
-        <!-- <div class="footer-links">
-          <a href="/privacy">Політика конфіденційності</a>
-          <a href="/terms">Умови використання</a>
-        </div> -->
       </div>
       <div class="attribution">
         <a
@@ -42,16 +38,12 @@
       </div>
     </footer>
     <script>
-      // Get the span element
-      const yearSpan = document.getElementById("copyright-year");
-
-      // Get the current year
-      const currentYear = new Date().getFullYear();
-
-      // Set it inside the span
-      if (yearSpan) {
-        yearSpan.textContent = currentYear;
-      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const yearSpan = document.getElementById("copyright-year");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+      });
     </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
