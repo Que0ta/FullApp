@@ -13,13 +13,14 @@ function GameWindow() {
   const { lobbyReset } = deleteLobby();
   const { readyUsers, readyLobby, chosenWord } = getLobbyInfo();
   const { gameStatus, getResult } = getStatusGame();
-  
+
   const { postData, error } = usePostData("/api/update-role");
 
   const [selected, setSelected] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
 
-  const [spyPopup, setSpyPopup] = useState(null);
+  const [spyPopup, setSpyPopup] = useState(0);
+
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const statusMap = {
@@ -32,7 +33,7 @@ function GameWindow() {
     kicked: "./civilian.png",
   };
 
-  if (gameStatus && gameStatus.gameWon === "civilians") {
+  if (gameStatus && gameStatus.gameWon === "civilians" && !spyPopup) {
     console.log("won civil!");
     // lobbyReset();
   } else if (gameStatus && gameStatus.gameWon === "spies") {
@@ -40,29 +41,29 @@ function GameWindow() {
     // lobbyReset();
   }
 
-  const handleNewGame = async() =>{
+  const handleNewGame = async () => {
     lobbyReset();
-    navigate('/game-settings');
-  }
+    navigate("/game-settings");
+  };
 
   // added chance for spy win
   const reCheck = async () => {
-    setSpyPopup(false);
     if (selectedAnswer === chosenWord) {
       const playerSend = ["", "guessed"];
       const result = await postData(playerSend);
     }
     getResult();
-  }
+    setSpyPopup(false);
+  };
 
   // selecting answer when spy is found
-  const checkData = (word)=>{
-    if (selectedAnswer === word) setSelectedAnswer('');
-    else{
+  const checkData = (word) => {
+    if (selectedAnswer === word) setSelectedAnswer("");
+    else {
       setSelectedAnswer(word);
     }
     console.log(word);
-  }
+  };
 
   // checking players after voting
   const voting = async () => {
@@ -74,6 +75,7 @@ function GameWindow() {
     } else if (selectedRole === "civilian") {
       const playerSend = [selected, "kicked"];
       const result = await postData(playerSend);
+      setSpyPopup(false);
       //   console.log(result);
     }
     readyLobby();
@@ -82,8 +84,16 @@ function GameWindow() {
 
   return (
     <div className="game-window">
-      {spyPopup ? <GuessWord onPressBtn={reCheck} onSelectAnswer={checkData} selectedAnswer={selectedAnswer}/> : ''}
-      {gameStatus && gameStatus.gameWon != "" && !spyPopup ? (
+      {spyPopup ? (
+        <GuessWord
+          onPressBtn={reCheck}
+          onSelectAnswer={checkData}
+          selectedAnswer={selectedAnswer}
+        />
+      ) : (
+        ""
+      )}
+      {gameStatus && gameStatus.gameWon != "" && spyPopup === false && (
         <div className="overlay">
           <div className="side-blur left"></div>
           <div className="center-box">
@@ -99,12 +109,12 @@ function GameWindow() {
                     .join(", ")} було успішно викрито!`
                 : "Секретне місце жителів успішно розпізнано!"}
             </p>
-            <button className="start-game" onClick={handleNewGame}>Розпочати нову гру</button>
+            <button className="start-game" onClick={handleNewGame}>
+              Розпочати нову гру
+            </button>
           </div>
           <div className="side-blur right"></div>
         </div>
-      ) : (
-        ""
       )}
       <div className="players-list">
         {readyUsers?.map((player, index) => (

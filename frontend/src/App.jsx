@@ -5,6 +5,7 @@ import Navigation from "./pages/Navigation.jsx";
 import Registration from "./pages/Register.jsx";
 import Game from "./pages/Game.jsx";
 import GameWindow from "./pages/GameWindow.jsx";
+import OnlineNav from "./pages/onlineNavigation.jsx";
 import { createContext, useState } from "react";
 
 export const UserContext = createContext();
@@ -30,6 +31,7 @@ function App() {
             <Route path="/register" element={<Registration />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/game-settings" element={<Navigation />} />
+            <Route path="/online-settings" element={<OnlineNav />} />
           </Routes>
         </UserContext.Provider>
       </PlayersContext.Provider>

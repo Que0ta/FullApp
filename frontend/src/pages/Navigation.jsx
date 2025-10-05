@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserContext, PlayersContext, SpyAmount } from "../App";
 import { useVerifyUser } from "../hooks/verifyUser";
 import { getLobbyInfo } from "../hooks/getLobby";

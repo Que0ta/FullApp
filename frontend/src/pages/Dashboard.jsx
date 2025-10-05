@@ -72,7 +72,7 @@ function Dashboard() {
       {/* Main buttons */}
       <div className="button-group">
         <a className="game" href="/game-settings"><button className="btn single">Одиночна гра</button></a>
-        <a className="game" href="/game-settings"><button className="btn multi" disabled>Групова гра</button></a>
+        <a className="game" href="/online-settings"><button className="btn multi">Групова гра</button></a>
       </div>
 
     </div>
