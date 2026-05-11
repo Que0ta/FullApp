@@ -1,4 +1,4 @@
-# 🎮 React + Express Game
+# React + Express Game
 
 This project is a **browser-based game** built with **React** on the frontend and **Express.js** on the backend.  
 I made it in order to improve my React knowledge and management of server side of the app. 
@@ -6,17 +6,17 @@ I made it in order to improve my React knowledge and management of server side o
 
 ---
 
-## 🚀 Features
+## Features
 
-- ⚛️ **React Frontend** — Interactive and dynamic gameplay interface  
-- 🧠 **Express Backend** — Handles game logic, API routes, or multiplayer state  
-- 🔄 **REST or WebSocket Communication** — Syncs game data between players or server  
-- 🎨 **Responsive Design** — Works seamlessly on desktop and mobile  
-- 🧰 **Modular Codebase** — Easy to extend or modify  
+-  **React Frontend** — Interactive and dynamic gameplay interface  
+-  **Express Backend** — Handles game logic, API routes, or multiplayer state  
+-  **REST or WebSocket Communication** — Syncs game data between players or server  
+-  **Responsive Design** — Works seamlessly on desktop and mobile  
+-  **Modular Codebase** — Easy to extend or modify  
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |--------|-------------|
