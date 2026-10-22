@@ -1,12 +1,31 @@
-# React + Vite
+# Spy Game frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React application built with Vite. See the [repository README](../README.md) for backend setup, environment variables, verification, and architecture conventions.
 
-Currently, two official plugins are available:
+## Commands
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Run these commands from this directory:
 
-## Expanding the ESLint configuration
+```sh
+npm ci
+npm run dev
+npm run build
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The build is written to `dist/` and served by Express in production. 
+API requests use relative `/api` URLs. Vite has no API proxy configured, so development routing must provide access to the backend. 
+Existing secure authentication cookies require HTTPS for signed-in browser flows.
+
+## Source layout
+
+- `main.jsx`: React mounting and browser router.
+- `app/`: route composition, provider state, and shared context definitions.
+- `features/auth/`: authentication pages, logout, and current-user hooks.
+- `features/dashboard/`: dashboard page and styles.
+- `features/game/`: setup screens, gameplay, and lobby hooks.
+- `features/words/`: word lists, custom-word components, and hooks.
+- `shared/hooks/`: the reusable POST request hook.
+- `styles/`: global styles.
+
+Feature styles remain regular CSS, with the original imports and cascade order. Context consumers import `app/contexts.js`, avoiding a dependency back to the application component. Hooks use the `use...` naming convention.
