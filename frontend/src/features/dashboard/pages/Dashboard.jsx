@@ -63,7 +63,7 @@ function Dashboard() {
       {/* Top bar */}
       <div className="top-bar">
         <div className="top-right">
-          <span className="balance">${balance}</span>
+          {/* <span className="balance">${balance}</span> */}
           <LogoutButton />
         </div>
       </div>
