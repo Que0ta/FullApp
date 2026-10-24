@@ -2,6 +2,8 @@ import { useState, useEffect, useContext, useRef, use } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext, PlayersContext, SpyAmount } from "../../../app/contexts.js";
 
+import SpyAmountComponent from "../components/SpyAmount.jsx";
+
 import { WordList } from "../../words/components/Words.jsx";
 import { CustomWordAdd } from "../../words/components/CustomWordAdd.jsx";
 
@@ -22,8 +24,15 @@ export default function OnlineNav() {
   const [onlinePlayers, setOnlinePlayers] = useState({});
   // Form data to send info of full lobby after slight updates
   const [formData, setFormData] = useState(null);
+  // Spy amount
+  const [spiesAm, setSpiesAm] = useState(1);
+  const { spies, setSpies } = useContext(SpyAmount);
 
-  
+  const handleAmountPass = (data) => {
+    setSpiesAm(data);
+    setSpies({ amount: data });
+    // console.log('amount =>',data);
+  };
   // checked words list - passed
   const handleFormSubmit = (data) => {
     setFormData(data);
@@ -77,6 +86,10 @@ export default function OnlineNav() {
           </li>
         ))}
       </ul>
+      <SpyAmountComponent
+              amountPass={handleAmountPass}
+              countUpdate={handleAmountPass}
+            />
       <WordList
         customWordsLoad={customWords}
         onData={handleFormSubmit}
